@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { ThreeDots } from "react-loader-spinner";
+import styled from 'styled-components';
+import { ThreeDots } from 'react-loader-spinner';
 
 export default function DefaultButton({ disable, innerText, type }){
 
-    if(disable !== ""){
+    if(disable !== ''){
 
         return (
             <ButtonDiv>
@@ -40,7 +40,7 @@ const Button = styled.button `
     box-sizing: border-box;
     width: 90%;
     height: 50px;
-    background-color: #FF7D48;
+    background-color: #FE774C;
     color: white;
     font-size: 20px;
     font-weight: 700;
