@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { ThreeDots } from 'react-loader-spinner';
+import styled from "styled-components";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function DefaultButton({ disable, innerText, type }){
 
-    if(disable !== ''){
+    if(disable !== ""){
 
         return (
             <ButtonDiv>
