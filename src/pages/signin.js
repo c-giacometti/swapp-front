@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+//import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import DefaultInput from "../components/default-input";
@@ -17,7 +17,7 @@ export default function Login(){
     const linkText = "Primeira vez? Cadastre-se!";
     const buttonText = "Entrar";
 
-    const navigate = useNavigate(); 
+    //const navigate = useNavigate(); 
 
     async function PostLogin(event){
 

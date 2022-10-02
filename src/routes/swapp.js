@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "../pages/signin";
+import Register from "../pages/signup";
 
 export default function Swapp(){
 
@@ -8,7 +9,7 @@ export default function Swapp(){
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Login />} />
-                <Route path="/signup" />
+                <Route path="/signup" element={<Register />} />
             </Routes>
         </BrowserRouter>
     );
