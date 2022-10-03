@@ -1,26 +1,21 @@
 import styled from "styled-components";
-import { decodeToken } from "react-jwt";
-import { IoIosArrowDown } from "react-icons/io";
+import { BiMenu, BiUser } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../contexts/UserContext";
+import { useState } from "react";
 
-export default function Header({ click, setClick, show, setShow, hide }){
+export default function Header(){
 
-    const { token } = useContext(UserContext);
-    const decode = decodeToken(token.token);
-    const username = decode.username;
     const navigate = useNavigate();
 
-    function toggleShow(){
-        if(show === false){
-            setShow(true);
-            setClick(true);
-        } else {
+    const [showMenu, setShowMenu] = useState(false);
+    const [showUser, setShowUser] = useState(false);
+
+    function toggleShow(show, setShow){
+        if(show){
             setShow(false);
-            setClick(false);
+        } else {
+            setShow(true);
         }
-        
     }
 
     function userLogout(){
@@ -29,18 +24,20 @@ export default function Header({ click, setClick, show, setShow, hide }){
     }
 
     return (
-        <>
-            <Container onClick={hide}>
-                <span onClick={() => navigate("/matchs")}>SWAPP</span>
-                <User>
-                    <Arrow onClick={toggleShow} isClicked={click}/>
-                    <span>{ username }</span>
-                </User>
-            </Container>
-            <Menu show={show}>
-                <span onClick={userLogout}>Logout</span>
-            </Menu>
-        </>
+        <Container>
+            <Menu onClick={() => toggleShow(showMenu, setShowMenu)}  />
+            <span>SWAPP</span>
+            <User onClick={() => toggleShow(showUser, setShowUser)} />
+            <Options show={showMenu}>
+                <span onClick={() => navigate("/matchs")}>Matchs</span>
+                <span onClick={() => navigate("/myproducts")}>Meus produtos</span>
+                <span onClick={() => navigate("/registerproduct")}>Cadastrar produto</span>
+                <span onClick={() => navigate("/swapp")}>Swapp!</span>
+            </Options>
+            <UserMenu show={showUser}>
+                <span onClick={userLogout}>Checkout</span>
+            </UserMenu>
+        </Container>
     );
 
 }
@@ -48,10 +45,11 @@ export default function Header({ click, setClick, show, setShow, hide }){
 const Container = styled.div `
     width: 100vw;
     height: 70px;
-    background-color: #151515;
+    background-color: #FC5067;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: 0px;
     left: 0px;
@@ -61,55 +59,78 @@ const Container = styled.div `
         color: white;
         font-family: 'Passion One';
         font-weight: 700;
-        font-size: 50px;
-        margin-left: 20px;
+        font-size: 30px;
         cursor: pointer;
     }
 
-    @media (max-width: 1080px){
-        width: 375px;
-        position: absolute;
-    }
 `
 
-const User = styled.div `
-    width: 110px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    span {
-        color: black;
-    }
-
-`
-
-const Arrow = styled(IoIosArrowDown)`
+const Menu = styled(BiMenu)`
     color: white;
-    transform: scale(2) ${props => props.isClicked ? "rotate(180deg)" : "rotate(0deg)"};
+    transform: scale(2);
+    margin-left: 30px;
     cursor: pointer;
 `
 
-const Menu = styled.div `
-    width: 150px;
-    height: 45px;
-    background-color: #171717;
+const User = styled(BiUser)`
+    color: white;
+    transform: scale(2);
+    margin-right: 30px;
+    cursor: pointer;
+`
+
+const Options = styled.div `
+    width: 180px;
+    height: 200px;
+    background-color: #FC5067;
+    opacity: 0.8;
+    display: ${props => props.show ? "flex" : "none"};
+    flex-direction: column;
+    align-items: left;
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
+
+    span {
+        box-sizing: border-box;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        padding-left: 10px;
+        border: solid 1px lightgray;
+        cursor: pointer;
+    }
+
+`
+
+const UserMenu = styled.div `
+    width: 120px;
+    height: 40px;
+    background-color: #FC5067;
+    opacity: 0.8;
     display: ${props => props.show ? "flex" : "none"};
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 70px;
     right: 0px;
-    border-radius: 0px 0px 0px 20px;
+    border-radius: 0px 0px 0px 10px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.20);
 
     span {
         color: white;
+        display: flex;
+        align-items: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: 700;
         font-size: 15px;
         cursor: pointer;
-    }
-
-    @media (max-width: 1080px){
-        position: absolute;
     }
 `
