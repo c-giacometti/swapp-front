@@ -1,7 +1,9 @@
 import { useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 import DefaultInput from "../components/default-input";
 import DefaultButton from "../components/default-button";
 import DefaultLink from "../components/default-link";
@@ -11,13 +13,13 @@ export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [disable, setDisable] = useState("");
-    const [token, setToken] = useState("");
+    const { setToken } = useContext(UserContext);
 
     const API = "http://localhost:4000/signin";
     const linkText = "Primeira vez? Cadastre-se!";
     const buttonText = "Entrar";
 
-    //const navigate = useNavigate(); 
+    const navigate = useNavigate(); 
 
     async function PostLogin(event){
 
@@ -26,14 +28,15 @@ export default function Login(){
         setDisable("disabled");
 
         const loginObject = {
-                            email,
-                            password                        
+                                email,
+                                password                        
                             }
 
         try {
 
             const response = await axios.post(API, loginObject);
-            setToken(response.data)
+            setToken(response.data);
+            navigate("/myproducts");
             return;
 
         } catch(error) {
