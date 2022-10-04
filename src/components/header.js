@@ -83,7 +83,6 @@ const Options = styled.div `
     width: 180px;
     height: 200px;
     background-color: #FC5067;
-    opacity: 0.8;
     display: ${props => props.show ? "flex" : "none"};
     flex-direction: column;
     align-items: left;
@@ -114,7 +113,6 @@ const UserMenu = styled.div `
     width: 120px;
     height: 40px;
     background-color: #FC5067;
-    opacity: 0.8;
     display: ${props => props.show ? "flex" : "none"};
     align-items: center;
     justify-content: center;
