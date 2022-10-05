@@ -5,6 +5,7 @@ import UserContext from "../contexts/UserContext";
 import Login from "../pages/signin";
 import Register from "../pages/signup";
 import UserProducts from "../pages/myproducts";
+import RegisterProduct from "../pages/registerproduct";
 
 export default function Swapp(){
 
@@ -18,6 +19,7 @@ export default function Swapp(){
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Register />} />
                     <Route path="/myproducts" element={<UserProducts />} />
+                    <Route path="/registerproduct" element={<RegisterProduct />} />
                 </Routes>
             </UserContext.Provider>
         </BrowserRouter>

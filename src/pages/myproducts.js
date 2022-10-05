@@ -9,6 +9,7 @@ export default function UserProducts(){
 
     const { token } = useContext(UserContext);
     const [products, setProducts] = useState([]);
+    const [click, setClick] = useState(false);
     const API = "http://localhost:4000/myproducts";
 
     async function getUserProducts(){
@@ -31,14 +32,16 @@ export default function UserProducts(){
     return (
         <Container>
             <Header />
-            <div>
+            <Title>
                 Seus produtos:
-            </div>
+            </Title>
             <ProductsContainer>
                 {products.map(
                     (render, index) => <ProductRender 
                                         productName={render.productName} 
                                         productImg={render.imgUrl}
+                                        click={click}
+                                        setClick={setClick}
                                         key={index}
                                         />)
                 }
@@ -56,14 +59,15 @@ const Container = styled.div `
     background-color: white;
     margin-top: 90px;
     padding: 15px;
+`
 
-    div {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: 700;
-        font-size: 25px;
-        margin-bottom: 40px;
-        border-bottom: solid 1px lightgray;
-    }
+const Title = styled.div `
+    height: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 40px;
+    border-bottom: solid 1px lightgray;
 `
 
 const ProductsContainer = styled.div `
@@ -71,5 +75,5 @@ const ProductsContainer = styled.div `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    border-bottom: solid 1px lightgray;
 `

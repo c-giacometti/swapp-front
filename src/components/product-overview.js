@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export default function ProductRender({ productName, productImg }){
+export default function ProductRender({ productName, productImg, click, setClick }){
 
     return (
         <Product>
-            <img src={productImg} alt="product" />
+            <Image src={productImg} alt="product" />
             <span>{productName}</span>
         </Product>
     );
@@ -17,12 +17,7 @@ const Product = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-    }
+    cursor: pointer;
 
     span {
         display: flex;
@@ -33,6 +28,13 @@ const Product = styled.div `
         text-align: center;
         font-size: 15px;
         font-weight: 500;
-        margin-top: 10px;
+        margin: 10px 0px 10px 0px;
     }
+`
+
+const Image = styled.img `
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 `
