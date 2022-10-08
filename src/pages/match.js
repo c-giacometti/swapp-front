@@ -154,6 +154,5 @@ const ItsAMatch = styled.div `
 
 const Heart = styled(IoHeartDislikeOutline)`
     color: #FC5067;
-    transform: scale(7);
-    
+    transform: scale(7);    
 `

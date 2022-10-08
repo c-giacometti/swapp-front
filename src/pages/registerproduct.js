@@ -86,26 +86,37 @@ const Container = styled.div `
 `
 
 const Title = styled.div `
+    width: 30vw;
     height: 60px;
+    display: flex;
+    justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     font-size: 25px;
     margin-bottom: 40px;
     border-bottom: solid 1px lightgray;
+
+    @media (max-width: 1080px){
+        width: 90vw;
+    }
 `
 
 const Button = styled.button `
     box-sizing: border-box;
-    width: 90vw;
+    width: 30vw;
     height: 50px;
     background-color: #FE774C;
     color: white;
     font-size: 20px;
     font-weight: 700;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    @media (max-width: 1080px){
+        width: 90vw;
+    }
 `
