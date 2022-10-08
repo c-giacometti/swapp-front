@@ -16,7 +16,6 @@ export default function RegisterProduct(){
     const [imgUrl, setImgUrl] = useState("");
     const [disable, setDisable] = useState("");
     const registerButton = "Cadastrar produto";
-    const myProductsButton = "Ver meus produtos";
     const API = "http://localhost:4000/registerproduct";
     const { token } = useContext(UserContext);
 

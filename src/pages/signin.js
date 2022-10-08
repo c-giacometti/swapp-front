@@ -35,7 +35,7 @@ export default function Login(){
 
             const response = await axios.post(API, loginObject);
             setToken(response.data);
-            navigate("/myproducts");
+            navigate("/matchs");
             return;
 
         } catch(error) {
@@ -72,16 +72,20 @@ const Container = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #FC5067;
+    background-color: #FC5867;
 `
 
 const Logo = styled.div `
-    font-size: 40px;
+    font-size: 80px;
     color: white;
     font-weight: 300;
     margin-bottom: 60px;
 
     span {
         font-weight: 700;
+    }
+
+    @media(max-width: 1080px){
+        font-size: 40px;
     }
 `

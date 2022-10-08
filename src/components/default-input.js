@@ -20,7 +20,7 @@ const InputContainer = styled.div `
 
     input {
         box-sizing: border-box;
-        width: 90%;
+        width: 30%;
         height: 60px;
         padding: 10px;
         background-color: ${props => props.disabled === "disabled" ? "#F2F2F2" : "#FFFFFF"};
@@ -29,6 +29,10 @@ const InputContainer = styled.div `
         margin-bottom: 15px;
         font-size: 20px;
         color: #000000;
+
+        @media(max-width: 1080px){
+            width: 90%;
+        }
     }
 
 `

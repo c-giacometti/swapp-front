@@ -12,11 +12,15 @@ export default function DefaultLink( { linkText, redirectTo }){
 }
 
 const LinkContainer = styled.span `
+    width: 90%;
     margin: 40px 0px 0px 0px;
+    text-align: center;
     a {
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 700;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: white;
         text-decoration: none;
+        word-break: normal;
     }
 `
