@@ -39,6 +39,12 @@ export default function RegisterProduct(){
             const config = {headers: {Authorization: `Bearer ${token.token}`}}
             await axios.post(API, product, config);
             setDisable("");
+            setProductName("");
+            setDescription("");
+            setMinPrice("");
+            setMaxPrice("");
+            setImgUrl("");
+            alert("Produto cadastrado com sucesso!");
             return;
         } catch(error) {
             setDisable("");

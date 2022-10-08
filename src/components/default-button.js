@@ -40,12 +40,12 @@ const Button = styled.button `
     box-sizing: border-box;
     width: 30%;
     height: 50px;
-    background-color: #FE774C;
+    background-color: #FC2050;
+    border: none;
     color: white;
     font-size: 20px;
     font-weight: 700;
     border-radius: 20px;
-    border: none;
     display: flex;
     justify-content: center;
     align-items: center;

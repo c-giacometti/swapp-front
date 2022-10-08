@@ -28,7 +28,7 @@ const Product = styled.div `
         text-align: center;
         font-size: 15px;
         font-weight: 500;
-        margin: 10px 0px 10px 0px;
+        margin: 10px 0px 20px 0px;
     }
 `
 
