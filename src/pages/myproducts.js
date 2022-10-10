@@ -11,7 +11,8 @@ export default function UserProducts(){
 
     const { token } = useContext(UserContext);
     const [products, setProducts] = useState([]);
-    const [click, setClick] = useState(false);
+    const [tradableProducts, setTradableProducts] = useState([]);
+    const [show, setShow] = useState(false);
     const API = "http://localhost:4000/myproducts";
 
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function UserProducts(){
         }
     }
 
-    useEffect(() => {getUserProducts()}, [products]);
+    useEffect(() => {getUserProducts()}, []);
 
     if(products.length > 0){
         return (
@@ -42,14 +43,17 @@ export default function UserProducts(){
                 <ProductsContainer>
                     {products.map(
                         (render, index) => <ProductRender 
+                                            id={render.id}
                                             productName={render.productName} 
                                             productImg={render.imgUrl}
-                                            click={click}
-                                            setClick={setClick}
+                                            setShow={setShow}
+                                            tradableProducts={tradableProducts}
+                                            setTradableProducts={setTradableProducts}
                                             key={index}
                                             />)
                     }
                 </ProductsContainer>
+                <Swapp show={show} onClick={() => navigate("/trade/", {state: tradableProducts})}>Swapp!</Swapp>
             </Container>
         );
     }
@@ -162,4 +166,25 @@ const Button = styled.button `
 const Bag = styled(BsBagX)`
     color: #FC5067;
     transform: scale(5);
+`
+
+const Swapp = styled.button `
+    box-sizing: border-box;
+    width: 25vw;
+    height: 50px;
+    background-color: #FC5067;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 20px;
+    border: none;
+    display: ${props => props.show ? "flex" : "none" };
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    cursor: pointer;
+
+    @media (max-width: 1080px){
+        width: 90vw;
+    }
 `

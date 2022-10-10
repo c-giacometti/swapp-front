@@ -7,6 +7,7 @@ import Register from "../pages/signup";
 import UserProducts from "../pages/myproducts";
 import RegisterProduct from "../pages/registerproduct";
 import Match from "../pages/match";
+import Trade from "../pages/trades";
 
 export default function Swapp(){
 
@@ -22,6 +23,7 @@ export default function Swapp(){
                     <Route path="/myproducts" element={<UserProducts />} />
                     <Route path="/registerproduct" element={<RegisterProduct />} />
                     <Route path="/matchs" element={<Match />} />
+                    <Route path="/trade" element={<Trade />} />
                 </Routes>
             </UserContext.Provider>
         </BrowserRouter>

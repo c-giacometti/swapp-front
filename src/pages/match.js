@@ -31,8 +31,6 @@ export default function Match(){
 
     useEffect(() => {getMatchs()}, []);
 
-    console.log(matchs);
-
     if(matchs.length > 0){
         return (
             <Container>
